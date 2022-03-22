@@ -7,7 +7,7 @@ import Boutique from './features/boutique/Boutique.vue';
 <template>
   <div class="app-container">
     <TheHeader class="header" />
-    <div class="app-content"><Component is:"Boutique" /></div>
+    <div class="app-content"><Component :is="Boutique" /></div>
     <TheFooter class="footer" />
   </div>
 </template>
