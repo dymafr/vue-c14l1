@@ -7,7 +7,7 @@ import Boutique from './features/boutique/Boutique.vue';
 <template>
   <div class="app-container">
     <TheHeader class="header" />
-    <Component is:"Boutique" />
+    <div class="app-content"><Component is:"Boutique" /></div>
     <TheFooter class="footer" />
   </div>
 </template>
@@ -19,13 +19,16 @@ import Boutique from './features/boutique/Boutique.vue';
 .app-container {
   min-height: 100vh;
   display: grid;
-  grid-template-areas: 'header header' 'shop cart' 'footer footer';
-  grid-template-columns: 75% 25%;
+  grid-template-areas: 'header' 'app-content' 'footer';
   grid-template-rows: 48px auto 48px;
 }
 
 .header {
   grid-area: header;
+}
+
+.app-content {
+  grid-area: app-content;
 }
 
 .footer {

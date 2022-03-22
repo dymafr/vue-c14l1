@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import Shop from './components/Shop/Shop.vue';
 import Cart from './components/Cart/Cart.vue';
-
-import data from './data/product';
+import data from '../../data/product';
 import { computed, reactive } from 'vue';
 import type {
   FiltersInterface,
   ProductCartInterface,
   ProductInterface,
   FilterUpdate,
-} from './interfaces';
+} from '../../interfaces';
 import { DEFAULT_FILTERS } from './data/filters';
 
 const state = reactive<{
@@ -81,7 +80,7 @@ const filteredProducts = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="boutique-container" :class="{ 'grid-empty': cartEmpty }">
     <Shop
       @update-filter="updateFilter"
       :products="filteredProducts"
@@ -98,4 +97,16 @@ const filteredProducts = computed(() => {
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.boutique-container {
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+.grid-empty {
+  grid-template-columns: 100%;
+}
+.cart {
+  background-color: white;
+  border-left: var(--border);
+}
+</style>
